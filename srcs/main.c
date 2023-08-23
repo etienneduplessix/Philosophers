@@ -10,8 +10,8 @@ int	start_simulation(t_var *var)
 	while (i < var->num_phil)
 	{
 		var->phil[i].last_time_ate = get_time_in_ms();
-		if (pthread_create(&var->phil[i].thread, NULL, \
-					&application, &var->phil[i]))
+		if (pthread_create(&var->phil[i].thread, NULL, &application, &var->phil[i]))
+			pthread_create(&thread_id, NULL, myThreadFun, NULL)
 			return (printf("Error creating threads\n"), 1);
 		i++;
 	}
@@ -38,7 +38,7 @@ void	*application(void *data)
 		ft_lone_ranger(phil);
 		return (NULL);
 	}
-	if (phil->pos % 2 == 0)
+	if (phil->position % 2 == 0)
 		usleep(200);
 	ft_odd_phil(phil);
 	return (NULL);
@@ -50,23 +50,23 @@ void	ft_odd_phil(t_phil *phil)
 	{
 		pthread_mutex_lock(&phil->var->forks[phil->fr_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
-				phil->pos, "has taken a fork");
+				phil->position, "has taken a fork");
 		pthread_mutex_lock(&phil->var->forks[phil->sc_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
-				phil->pos, "has taken a fork");
+				phil->position, "has taken a fork");
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
-				phil->pos, "is eating");
+				phil->position, "is eating");
 		if (ft_sleep(phil, phil->var->time_to_eat))
 			break ;
 		phil->last_time_ate = get_time_in_ms();
 		pthread_mutex_unlock(&phil->var->forks[phil->sc_fork]);
 		pthread_mutex_unlock(&phil->var->forks[phil->fr_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
-				phil->pos, "is sleeping");
+				phil->position, "is sleeping");
 		if (ft_sleep(phil, phil->var->time_to_sleep))
 			break ;
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
-				phil->pos, "is thinking");
+				phil->position, "is thinking");
 		phil->must_eat--;
 	}
 }
@@ -83,7 +83,7 @@ int	ft_sleep(t_phil *phil, long time)
 				&& !phil->var->stop_sign)
 		{
 			phil->var->stop_sign = 1;
-			phil->var->index_of_the_phil_who_died = phil->pos;
+			phil->var->index_of_the_phil_who_died = phil->position;
 			phil->var->time_of_death = get_time_in_ms() - phil->var->start_time;
 			return (ft_just_unlock(phil), 1);
 		}
@@ -103,7 +103,7 @@ int	main(int ac, char **av)
 	{
 		if (check_valid_input(ac, av))
 			return (1);
-		fill_struct(ac, av, &var);
+		fill_struct(av,&var);
 		initiate_struct(&var);
 		start_simulation(&var);
 	}

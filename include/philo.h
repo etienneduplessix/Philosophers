@@ -12,7 +12,7 @@ typedef struct s_var	t_var;
 typedef struct s_phil
 {
 	int			times_ate;
-	int			pos;
+	int			position;
 	int			fr_fork;
 	int			sc_fork;
 	time_t		last_time_ate;
@@ -44,12 +44,11 @@ int		check_valid_input(int ac, char **av);
 int		check_max_int(int ac, char **av);
 int		check_digit(int ac, char **av);
 size_t	ft_strlen(const char *s);
-int		ft_memcmp(const void *str1, const void *str2, size_t n);
-void	fill_struct(int ac, char **av, t_var *var);
+int     ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
+void	fill_struct(char **av, t_var *var);
 int		initiate_struct(t_var *var);
 int		initiate_philo(t_var *var);
 int		initiate_mutexeses(t_var *var);
-void	fill_struct(int ac, char **av, t_var *var);
 time_t	get_time_in_ms(void);
 void	*application(void *data);
 int		start_simulation(t_var *var);

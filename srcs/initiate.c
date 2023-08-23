@@ -25,7 +25,7 @@ int	initiate_philo(t_var *var)
 	{
 		var->phil[i].must_eat = var->must_eat_count;
 		var->phil[i].times_ate = 0;
-		var->phil[i].pos = i + 1;
+		var->phil[i].position = i + 1;
 		var->phil[i].fr_fork = i;
 		var->phil[i].sc_fork = (i + 1) % var->num_phil;
 		var->phil[i].var = var;
@@ -52,7 +52,7 @@ int	initiate_mutexeses(t_var *var)
 	return (0);
 }
 
-void	fill_struct(int ac, char **av, t_var *var)
+void	fill_struct(char **av, t_var *var)
 {
 	var->num_phil = ft_atoi(av[1]);
 	var->time_to_die = ft_atoi(av[2]);

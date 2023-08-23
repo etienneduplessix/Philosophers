@@ -11,23 +11,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int	ft_memcmp(const void *str1, const void *str2, size_t n)
-{
-	unsigned char	*s1;
-	unsigned char	*s2;
 
-	s1 = (unsigned char *) str1;
-	s2 = (unsigned char *) str2;
-	while (n > 0)
-	{
-		if (*s1 > *s2 || *s1 < *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-		n--;
-	}
-	return (0);
-}
 
 void	ft_free(t_var *var)
 {
@@ -48,12 +32,12 @@ void	ft_lone_ranger(t_phil *phil)
 {
 	pthread_mutex_lock(&phil->var->forks[phil->fr_fork]);
 	printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
-			phil->pos, "has taken a fork");
+			phil->position, "has taken a fork");
 	while (1)
 	{
 		if (get_time_in_ms() - phil->last_time_ate > phil->var->time_to_die)
 		{
-			phil->var->index_of_the_phil_who_died = phil->pos;
+			phil->var->index_of_the_phil_who_died = phil->position;
 			phil->var->time_of_death = get_time_in_ms() - phil->var->start_time;
 			phil->var->stop_sign = 1;
 			break ;
