@@ -1,22 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: edupless <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/08 18:26:39 by edupless          #+#    #+#              #
-#    Updated: 2023/08/08 18:27:38 by edupless         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 NAME	= philo
 CFLAGS	= -Wall -Wextra -Werror  
-LIBMLX	= ./lib/MLX42
-LIBFT	= lib/libft
-LIBF	= libft.a
-HEADERS	= -I ./include -I $(LIBMLX)/include   
-SRCS	= $(shell find ./src -iname "*.c")
+HEADERS	= -I ./include    
+SRCS	= $(shell find ./srcs -iname "*.c")
 OBJS_DIR= OBJS 
 OBJS	= ${SRCS:.c=.o}
 
