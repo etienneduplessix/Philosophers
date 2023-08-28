@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/28 13:35:09 by edupless          #+#    #+#             */
+/*   Updated: 2023/08/28 13:41:58 by edupless         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include"../include/philo.h"
+#include "../include/philo.h"
 
 int	start_simulation(t_var *var)
 {
@@ -10,7 +21,8 @@ int	start_simulation(t_var *var)
 	while (i < var->num_phil)
 	{
 		var->phil[i].last_time_ate = get_time_in_ms();
-		if (pthread_create(&var->phil[i].thread, NULL, &application, &var->phil[i]))
+		if (pthread_create(&var->phil[i].thread, \
+		NULL, &application, &var->phil[i]))
 			return (printf("Error creating threads\n"), 1);
 		i++;
 	}
@@ -97,15 +109,16 @@ int	main(int ac, char **av)
 {
 	t_var	var;
 
-	if (ac - 1 == 4 )
+	if (ac - 1 == 4)
 	{
 		if (check_valid_input(ac, av))
 			return (1);
-		fill_struct(av,&var);
+		fill_struct(av, &var);
 		initiate_struct(&var);
 		start_simulation(&var);
 	}
 	else
-		printf("number_of_philosophers, time_to_die, time_to_eat, time_to_sleep");
+		printf("number_of_philosophers, time_to_die,\
+		time_to_eat, time_to_sleep");
 	return (0);
 }

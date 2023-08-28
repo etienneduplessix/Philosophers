@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/28 13:37:53 by edupless          #+#    #+#             */
+/*   Updated: 2023/08/28 13:38:10 by edupless         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include"../include/philo.h"
+#include "../include/philo.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -10,8 +21,6 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-
 
 void	ft_free(t_var *var)
 {

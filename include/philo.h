@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/28 13:35:48 by edupless          #+#    #+#             */
+/*   Updated: 2023/08/28 13:37:19 by edupless         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -14,7 +25,7 @@ typedef struct s_phil
 	int			times_ate;
 	int			position;
 	int			taking_fork;
-	int 		must_eat;
+	int			must_eat;
 	int			sc_fork;
 	time_t		last_time_ate;
 	pthread_t	thread;
@@ -43,7 +54,7 @@ int		check_valid_input(int ac, char **av);
 int		check_max_int(int ac, char **av);
 int		check_digit(int ac, char **av);
 size_t	ft_strlen(const char *s);
-int     ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
+int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
 void	fill_struct(char **av, t_var *var);
 int		initiate_struct(t_var *var);
 int		initiate_philo(t_var *var);

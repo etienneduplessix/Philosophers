@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initiate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/28 13:35:01 by edupless          #+#    #+#             */
+/*   Updated: 2023/08/28 13:38:43 by edupless         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include"../include/philo.h"
+#include "../include/philo.h"
 
 int	initiate_struct(t_var *var)
 {
@@ -60,7 +71,6 @@ void	fill_struct(char **av, t_var *var)
 	var->time_of_death = 0;
 	var->index_of_the_phil_who_died = 0;
 }
-
 
 time_t	get_time_in_ms(void)
 {
