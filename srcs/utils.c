@@ -21,16 +21,16 @@ void	ft_free(t_var *var)
 	free(var->meal);
 }
 
-void	ft_just_unlock(t_phil *phil)
+void	ft_unlock(t_phil *phil)
 {
 	pthread_mutex_unlock(phil->var->meal);
 	pthread_mutex_unlock(&phil->var->forks[phil->sc_fork]);
-	pthread_mutex_unlock(&phil->var->forks[phil->fr_fork]);
+	pthread_mutex_unlock(&phil->var->forks[phil->taking_fork]);
 }
 
 void	ft_lone_ranger(t_phil *phil)
 {
-	pthread_mutex_lock(&phil->var->forks[phil->fr_fork]);
+	pthread_mutex_lock(&phil->var->forks[phil->taking_fork]);
 	printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
 			phil->position, "has taken a fork");
 	while (1)

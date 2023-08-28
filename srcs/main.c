@@ -11,12 +11,10 @@ int	start_simulation(t_var *var)
 	{
 		var->phil[i].last_time_ate = get_time_in_ms();
 		if (pthread_create(&var->phil[i].thread, NULL, &application, &var->phil[i]))
-			pthread_create(&thread_id, NULL, myThreadFun, NULL)
 			return (printf("Error creating threads\n"), 1);
 		i++;
 	}
 	i = 0;
-	while (i < var->num_phil)
 	{
 		pthread_join(var->phil[i].thread, NULL);
 		i++;
@@ -48,7 +46,7 @@ void	ft_odd_phil(t_phil *phil)
 {
 	while (phil->must_eat)
 	{
-		pthread_mutex_lock(&phil->var->forks[phil->fr_fork]);
+		pthread_mutex_lock(&phil->var->forks[phil->taking_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
 				phil->position, "has taken a fork");
 		pthread_mutex_lock(&phil->var->forks[phil->sc_fork]);
@@ -60,7 +58,7 @@ void	ft_odd_phil(t_phil *phil)
 			break ;
 		phil->last_time_ate = get_time_in_ms();
 		pthread_mutex_unlock(&phil->var->forks[phil->sc_fork]);
-		pthread_mutex_unlock(&phil->var->forks[phil->fr_fork]);
+		pthread_mutex_unlock(&phil->var->forks[phil->taking_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
 				phil->position, "is sleeping");
 		if (ft_sleep(phil, phil->var->time_to_sleep))
@@ -85,10 +83,10 @@ int	ft_sleep(t_phil *phil, long time)
 			phil->var->stop_sign = 1;
 			phil->var->index_of_the_phil_who_died = phil->position;
 			phil->var->time_of_death = get_time_in_ms() - phil->var->start_time;
-			return (ft_just_unlock(phil), 1);
+			return (ft_unlock(phil), 1);
 		}
 		if (phil->var->stop_sign)
-			return (ft_just_unlock(phil), 1);
+			return (ft_unlock(phil), 1);
 		pthread_mutex_unlock(phil->var->meal);
 		usleep(100);
 	}
@@ -108,7 +106,6 @@ int	main(int ac, char **av)
 		start_simulation(&var);
 	}
 	else
-		printf("Usage: ./philo <# philosophers> <time to die> <time to eat>\
-				<time to sleep> ");
+		printf("number_of_philosophers, time_to_die, time_to_eat, time_to_sleep");
 	return (0);
 }

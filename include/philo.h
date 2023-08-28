@@ -13,11 +13,11 @@ typedef struct s_phil
 {
 	int			times_ate;
 	int			position;
-	int			fr_fork;
+	int			taking_fork;
+	int 		must_eat;
 	int			sc_fork;
 	time_t		last_time_ate;
 	pthread_t	thread;
-	int			must_eat;
 	t_var		*var;
 }	t_phil;
 
@@ -29,7 +29,6 @@ typedef struct s_var
 	long			time_to_die;
 	long			time_to_eat;
 	long			time_to_sleep;
-	int				must_eat_count;
 	time_t			start_time;
 	int				stop_sign;
 	int				max_ate;
@@ -56,6 +55,6 @@ void	ft_odd_phil(t_phil *phil);
 void	ft_lone_ranger(t_phil *phil);
 int		ft_sleep(t_phil *phil, long time);
 void	ft_free(t_var *var);
-void	ft_just_unlock(t_phil *phil);
+void	ft_unlock(t_phil *phil);
 
 #endif
