@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME	= philo
-CFLAGS	= -Wall -Wextra -Werror  
+CFLAGS	= 
 HEADERS	= -I ./include    
 SRCS	= $(shell find ./srcs -iname "*.c")
 OBJS_DIR= OBJS 

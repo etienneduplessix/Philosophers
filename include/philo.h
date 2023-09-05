@@ -46,7 +46,7 @@ typedef struct s_var
 	t_phil			*phil;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	*log;
-	pthread_mutex_t	*meal;
+
 }	t_var;
 
 long	ft_atoi(const char *str);
@@ -62,8 +62,8 @@ int		initiate_mutexeses(t_var *var);
 time_t	get_time_in_ms(void);
 void	*application(void *data);
 int		start_simulation(t_var *var);
-void	ft_odd_phil(t_phil *phil);
-void	ft_lone_ranger(t_phil *phil);
+void		ft_odd_phil(t_phil *phil);
+void		ft_1_philo(t_phil *phil);
 int		ft_sleep(t_phil *phil, long time);
 void	ft_free(t_var *var);
 void	ft_unlock(t_phil *phil);
