@@ -6,13 +6,11 @@
 /*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:35:09 by edupless          #+#    #+#             */
-/*   Updated: 2023/08/28 13:41:58 by edupless         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:56:13 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
-
-
 
 size_t	ft_strlen(const char *s)
 {
@@ -206,19 +204,22 @@ time_t	get_time_in_ms(void)
 
 
 void	ft_1_philo(t_phil *phil)
-{	
-	int timed ;
-
-	timed = (phil->var->time_to_die) * 1000 - 1000;
-	
-	pthread_mutex_lock(&phil->var->forks[phil->taking_fork]);
-	printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, phil->position, "has taken a fork");
-	
-	usleep(timed);
-	phil->var->index_of_the_phil_who_died = phil->position;
-	phil->var->time_of_death = get_time_in_ms() - phil->var->start_time;
-	phil->var->stop_sign = 1;
+{
+        pthread_mutex_lock(&phil->var->forks[phil->taking_fork]);
+        printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
+                        phil->position, "has taken a fork");
+        while (1)
+        {
+                if (get_time_in_ms() - phil->last_time_ate > phil->var->time_to_die)
+                {
+                        phil->var->index_of_the_phil_who_died = phil->position;
+                        phil->var->time_of_death = get_time_in_ms() - phil->var->start_time;
+                        phil->var->stop_sign = 1;
+                        break ;
+                }
+        }
 }
+  
  
 void    *application(void *data)
 {
@@ -237,6 +238,32 @@ void    *application(void *data)
 
 }
 
+int     start_simulation(t_var *var)
+{
+        int     i;
+
+        i = 0;
+        var->start_time = get_time_in_ms();
+        while (i < var->num_phil)
+        {
+                var->phil[i].last_time_ate = get_time_in_ms();
+                if (pthread_create(&var->phil[i].thread, NULL, \
+                                        &application, &var->phil[i]))
+                        return (printf("Error creating threads\n"), 1);
+                i++;
+        }
+        i = 0;
+        while (i < var->num_phil)
+        {
+                pthread_join(var->phil[i].thread, NULL);
+                i++;
+        }
+        if (var->stop_sign == 1)
+                printf("%ld %d %s\n", get_time_in_ms() - var->start_time, \
+                                var->index_of_the_phil_who_died, "died");
+        ft_free(var);
+        return (0);
+}
 
 void	ft_odd_phil(t_phil *phil)
 {
