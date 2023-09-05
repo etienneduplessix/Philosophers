@@ -159,6 +159,7 @@ int   initiate_philo(t_var *var)
 		var->phil[i].taking_fork = i;
 		var->phil[i].sc_fork = (i + 1) % var->num_phil;
 		var->phil[i].var = var;
+		var->phil[i].must_eat = 100000000;
 		
 
 		i++;
@@ -231,11 +232,11 @@ void    *application(void *data)
 		ft_1_philo(phil);
 	}
 	if (phil->position % 2 == 0)
-		usleep(200);
-	ft_odd_phil(phil);
+	{
+		usleep(10);
+	      ft_odd_phil(phil);
+	}
 	return (NULL);
-
-
 }
 
 int     start_simulation(t_var *var)
@@ -314,11 +315,8 @@ int	ft_sleep(t_phil *phil, long time)
 	return (0);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	int ac = 5 ;
-	char *av[] = {"","4","1000","100","100",NULL};
-
 	t_var	var;
 
 	if (ac - 1 == 4)
