@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edupless <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: edupless <edupless@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/28 13:36:03 by edupless          #+#    #+#              #
-#    Updated: 2023/08/28 13:36:07 by edupless         ###   ########.fr        #
+#    Updated: 2023/09/06 16:00:13 by edupless         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
-CFLAGS	= 
+CFLAGS	= -Wall -Wextra -Werror 
 HEADERS	= -I ./include    
 SRCS	= $(shell find ./srcs -iname "*.c")
 OBJS_DIR= OBJS 
@@ -28,7 +28,6 @@ $(NAME): $(OBJS)
 
 clean:	
 	@rm -rf $(OBJS)
-
 fclean: clean
 	@rm -rf $(NAME)
 

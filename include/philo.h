@@ -6,7 +6,7 @@
 /*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:35:48 by edupless          #+#    #+#             */
-/*   Updated: 2023/08/28 13:37:19 by edupless         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:02:27 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int		initiate_mutexeses(t_var *var);
 time_t	get_time_in_ms(void);
 void	*application(void *data);
 int		start_simulation(t_var *var);
-void		ft_odd_phil(t_phil *phil);
-void		ft_1_philo(t_phil *phil);
+void	ft_odd_phil(t_phil *phil);
+void	ft_1_philo(t_phil *phil);
 int		ft_sleep(t_phil *phil, long time);
 void	ft_free(t_var *var);
 void	ft_unlock(t_phil *phil);
