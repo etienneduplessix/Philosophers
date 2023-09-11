@@ -6,7 +6,7 @@
 /*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:42:38 by edupless          #+#    #+#             */
-/*   Updated: 2023/09/06 16:22:32 by edupless         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:51:39 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,16 +104,14 @@ int	main(int ac, char **av)
 {
 	t_var	var;
 
-	
-	if (ac == 5|| ac == 6)
+	if (ac == 5 || ac == 6)
 	{
 		if (check_valid_input(ac, av))
 			return (1);
-		fill_struct(ac,av,&var);
+		fill_struct(ac, av, &var);
 		initiate_struct(&var);
 		start_simulation(&var);
 	}
-	
 	else
 		printf("number_of_philosophers, time_to_die,\
 		time_to_eat, time_to_sleep,number_of_times_each_philosopher_must_eat");

@@ -6,7 +6,7 @@
 /*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:35:48 by edupless          #+#    #+#             */
-/*   Updated: 2023/09/06 16:02:27 by edupless         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:50:29 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ typedef struct s_var
 	long			time_to_die;
 	long			time_to_eat;
 	long			time_to_sleep;
-	int 			must_eat_count;
-	int 			nb_ac;
+	int				must_eat_count;
+	int				nb_ac;
 	time_t			start_time;
 	int				stop_sign;
 	int				max_ate;
@@ -57,7 +57,7 @@ int		check_max_int(int ac, char **av);
 int		check_digit(int ac, char **av);
 size_t	ft_strlen(const char *s);
 int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
-void	fill_struct(int ac,char **av, t_var *var);
+void	fill_struct(int ac, char **av, t_var *var);
 int		initiate_struct(t_var *var);
 int		initiate_philo(t_var *var);
 int		initiate_mutexeses(t_var *var);
