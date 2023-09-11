@@ -104,11 +104,12 @@ int	main(int ac, char **av)
 {
 	t_var	var;
 
-	if (ac - 1 == 5|| ac - 1 == 6)
+	
+	if (ac == 5|| ac == 6)
 	{
 		if (check_valid_input(ac, av))
 			return (1);
-		fill_struct(av, &var);
+		fill_struct(ac,av,&var);
 		initiate_struct(&var);
 		start_simulation(&var);
 	}

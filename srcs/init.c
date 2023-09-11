@@ -39,6 +39,7 @@ int	initiate_philo(t_var *var)
 		var->phil[i].sc_fork = (i + 1) % var->num_phil;
 		var->phil[i].var = var;
 		var->phil[i].must_eat = var->must_eat_count;
+		
 		i++;
 	}
 	return (0);
@@ -60,13 +61,21 @@ int	initiate_mutexeses(t_var *var)
 	return (0);
 }
 
-void	fill_struct(char **av, t_var *var)
+void	fill_struct(int ac, char **av, t_var *var)
 {
+	
 	var->num_phil = ft_atoi(av[1]);
 	var->time_to_die = ft_atoi(av[2]);
 	var->time_to_eat = ft_atoi(av[3]);
 	var->time_to_sleep = ft_atoi(av[4]);
+	if (ac == 6)
+	{
 	var->must_eat_count= ft_atoi(av[5]);
+	}
+	else
+	{
+	var->must_eat_count= 10000000;
+	}
 	var->time_of_death = 0;
 	var->index_of_the_phil_who_died = 0;
 }
