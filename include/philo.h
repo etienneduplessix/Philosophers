@@ -40,6 +40,7 @@ typedef struct s_var
 	long			time_to_die;
 	long			time_to_eat;
 	long			time_to_sleep;
+	int 			must_eat_count;
 	time_t			start_time;
 	int				stop_sign;
 	int				max_ate;

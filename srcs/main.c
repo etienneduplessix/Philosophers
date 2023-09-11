@@ -104,7 +104,7 @@ int	main(int ac, char **av)
 {
 	t_var	var;
 
-	if (ac - 1 == 4)
+	if (ac - 1 == 5|| ac - 1 == 6)
 	{
 		if (check_valid_input(ac, av))
 			return (1);
@@ -112,8 +112,9 @@ int	main(int ac, char **av)
 		initiate_struct(&var);
 		start_simulation(&var);
 	}
+	
 	else
 		printf("number_of_philosophers, time_to_die,\
-		time_to_eat, time_to_sleep");
+		time_to_eat, time_to_sleep,number_of_times_each_philosopher_must_eat");
 	return (0);
 }

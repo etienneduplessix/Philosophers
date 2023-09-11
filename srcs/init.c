@@ -38,7 +38,7 @@ int	initiate_philo(t_var *var)
 		var->phil[i].taking_fork = i;
 		var->phil[i].sc_fork = (i + 1) % var->num_phil;
 		var->phil[i].var = var;
-		var->phil[i].must_eat = 100000000;
+		var->phil[i].must_eat = var->must_eat_count;
 		i++;
 	}
 	return (0);
@@ -66,6 +66,7 @@ void	fill_struct(char **av, t_var *var)
 	var->time_to_die = ft_atoi(av[2]);
 	var->time_to_eat = ft_atoi(av[3]);
 	var->time_to_sleep = ft_atoi(av[4]);
+	var->must_eat_count= ft_atoi(av[5]);
 	var->time_of_death = 0;
 	var->index_of_the_phil_who_died = 0;
 }
