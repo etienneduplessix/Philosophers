@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utile.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:41:59 by edupless          #+#    #+#             */
-/*   Updated: 2023/09/06 16:03:34 by edupless         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:02:32 by etiennedupl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ int	ft_sleep(t_phil *phil, long time)
 	long	now;
 
 	now = get_time_in_ms();
+	usleep(10);
 	while (get_time_in_ms() - now < time)
 	{
-		if (get_time_in_ms() - phil->last_time_ate >= phil->var->time_to_die \
+		if (get_time_in_ms() - phil->last_time_ate > phil->var->time_to_die \
 				&& !phil->var->stop_sign)
 		{
 			phil->var->stop_sign = 1;
