@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:42:38 by edupless          #+#    #+#             */
-/*   Updated: 2023/09/11 15:51:39 by edupless         ###   ########.fr       */
+/*   Updated: 2023/10/17 22:31:03 by etiennedupl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,14 @@ void	*application(void *data)
 	}
 	if (phil->position % 2 == 0)
 	{
-		usleep(10);
+		usleep(100);
 		ft_odd_phil(phil);
 	}
-	return (NULL);
+	else
+	{
+		ft_odd_phil(phil);
+	}
+return (NULL);
 }
 
 int	start_simulation(t_var *var)
