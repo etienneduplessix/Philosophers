@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:35:48 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/17 21:33:11 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2023/10/26 17:33:21 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/time.h>
-#include <stdbool.h>
+# include <stdbool.h>
 
 typedef struct s_var	t_var;
 typedef struct s_phil
@@ -42,6 +42,9 @@ typedef struct s_var
 	long			time_to_eat;
 	long			time_to_sleep;
 	int				must_eat_count;
+	int				t_v;
+	int				t;
+	int				s;
 	int				nb_ac;
 	time_t			start_time;
 	int				stop_sign;

@@ -3,67 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   utile.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:41:59 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/18 15:04:41 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2023/10/26 18:02:37 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-size_t	ft_strlen(const char *s)
+bool	philod(t_phil *phil)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-void	ft_free(t_var *var)
-{
-	free(var->phil);
-	free(var->forks);
-	free(var->log);
-}
-
-void	ft_unlock(t_phil *phil)
-{
-	pthread_mutex_unlock(&phil->var->forks[phil->sc_fork]);
-	pthread_mutex_unlock(&phil->var->forks[phil->taking_fork]);
-}
-
-
-
-
-bool philod(t_phil *phil)
-{
-usleep(10);
-if((var->phil->time) - (phil->times_ate + phil->var->time_to_sleep) <= 10 )
-	return(false);
-return(true);
+	usleep (50);
+	if (((phil->var->must_eat_count) - (phil->var->t)) <= 8 \
+	&& phil->var->s == 10)
+		return (false);
+	return (true);
 }
 
 int	ft_sleep(t_phil *phil, long time)
 {
 	long	now;
-	
+
 	now = get_time_in_ms();
 	while (get_time_in_ms() - now < time)
 	{
-		
-		if(!philod(phil))
+		if (!philod (phil))
 		{
 			phil->var->stop_sign = 1;
 			phil->var->index_of_the_phil_who_died = phil->position;
 			phil->var->time_of_death = get_time_in_ms() - phil->var->start_time;
 			return (ft_unlock(phil), 1);
 		}
-		
 		if (phil->var->stop_sign)
-			usleep(10);
+			usleep(100);
 	}
 	return (0);
 }
@@ -77,12 +50,3 @@ time_t	get_time_in_ms(void)
 	time = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
 	return (time);
 }
-time_t	get_time_in_mc(long ti)
-{
-	time_t			time;
-	
-	time = ti ;
-return (time);
-}
-
-

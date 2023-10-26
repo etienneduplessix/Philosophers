@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:42:38 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/17 22:31:03 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2023/10/26 18:23:32 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_1_philo(t_phil *phil)
 	phil->position, "has taken a fork");
 	while (1)
 	{
-		if (get_time_in_ms() - phil->last_time_ate > phil->var->time_to_die)
+		if (get_time_in_ms() - phil->last_time_ate >phil->var->time_to_die)
 		{
 			phil->var->index_of_the_phil_who_died = phil->position;
 			phil->var->time_of_death = get_time_in_ms() - phil->var->start_time;
@@ -34,8 +34,10 @@ void	*application(void *data)
 	t_phil	*phil;
 
 	phil = (t_phil *)data;
+
 	if (phil->var->num_phil == 1)
 	{
+			
 		ft_1_philo(phil);
 	}
 	if (phil->position % 2 == 0)
@@ -47,7 +49,7 @@ void	*application(void *data)
 	{
 		ft_odd_phil(phil);
 	}
-return (NULL);
+	return (NULL);
 }
 
 int	start_simulation(t_var *var)
@@ -89,6 +91,7 @@ void	ft_odd_phil(t_phil *phil)
 				phil->position, "has taken a fork");
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
 				phil->position, "is eating");
+		phil->var->t = phil->var->t_v - phil->must_eat ;
 		if (ft_sleep(phil, phil->var->time_to_eat))
 			break ;
 		phil->last_time_ate = get_time_in_ms();
