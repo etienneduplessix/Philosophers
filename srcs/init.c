@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:41:37 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/26 18:16:19 by edupless         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:22:50 by etiennedupl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
