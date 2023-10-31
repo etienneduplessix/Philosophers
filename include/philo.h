@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:35:48 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/30 13:22:37 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2023/10/26 17:33:21 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -6,7 +6,7 @@
 /*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:41:59 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/26 18:02:37 by edupless         ###   ########.fr       */
+/*   Updated: 2023/10/31 15:11:51 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	philod(t_phil *phil)
 {
 	usleep (50);
-	if (((phil->var->must_eat_count) - (phil->var->t)) <= 8 \
+	if (((phil->var->must_eat_count) - (phil->var->t)) <= 10 \
 	&& phil->var->s == 10)
 		return (false);
 	return (true);
@@ -36,7 +36,7 @@ int	ft_sleep(t_phil *phil, long time)
 			return (ft_unlock(phil), 1);
 		}
 		if (phil->var->stop_sign)
-			usleep(100);
+			usleep(10);
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:42:38 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/30 13:23:24 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2023/10/31 15:10:23 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_1_philo(t_phil *phil)
 {
 	pthread_mutex_lock(&phil->var->forks[phil->taking_fork]);
 	printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
-	phil->position, "has taken a fork"); 
+	phil->position, "has taken a fork");
 	while (1)
 	{
 		if (get_time_in_ms() - phil->last_time_ate > phil->var->time_to_die)
@@ -34,14 +34,13 @@ void	*application(void *data)
 	t_phil	*phil;
 
 	phil = (t_phil *)data;
-
 	if (phil->var->num_phil == 1)
 	{
 		ft_1_philo(phil);
 	}
-	if (phil->position % 2 == 0)
+	else if (phil->position % 2 == 0)
 	{
-		usleep(100);
+		usleep(10);
 		ft_odd_phil(phil);
 	}
 	else
@@ -57,7 +56,7 @@ int	start_simulation(t_var *var)
 
 	i = 0;
 	var->start_time = get_time_in_ms();
-	while (i <= var->num_phil)
+	while (i < var->num_phil)
 	{
 		var->phil[i].last_time_ate = get_time_in_ms();
 		if (pthread_create(&var->phil[i].thread, NULL, \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
+/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:41:37 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/30 13:22:50 by etiennedupl      ###   ########.fr       */
+/*   Updated: 2023/10/31 15:13:08 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,11 @@ void	fill_struct(int ac, char **av, t_var *var)
 	}
 	else
 	{
-		var->must_eat_count = 100000000;
+		var->must_eat_count = 10000000;
 	}
 	var->t_v = var->must_eat_count;
 	var->t = 0;
 	var->s = var->time_to_die - (var->time_to_sleep + var->time_to_eat);
+	var->time_of_death = 0;
 	var->index_of_the_phil_who_died = 0;
 }
