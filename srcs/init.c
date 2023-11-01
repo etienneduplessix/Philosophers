@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:41:37 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/31 16:08:52 by edupless         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:48:22 by etiennedupl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	fill_struct(int ac, char **av, t_var *var)
 	var->time_to_die = ft_atoi(av[2]);
 	var->time_to_eat = ft_atoi(av[3]);
 	var->time_to_sleep = ft_atoi(av[4]);
+	var->stop_sign = 0;
 	if (ac == 6)
 	{
 		var->must_eat_count = ft_atoi(av[5]);

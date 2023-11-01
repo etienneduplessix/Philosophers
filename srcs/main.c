@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
+/*   By: etienneduplessix <etienneduplessix@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:42:38 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/31 19:43:43 by edupless         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:56:44 by etiennedupl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ int	start_simulation(t_var *var)
 	if (var->stop_sign == 1)
 		printf ("%ld %d %s\n", get_time_in_ms() - var->start_time, \
 				var->index_of_the_phil_who_died, "died");
+	if (var->stop_sign == 2)
+		printf ("%ld %d %s\n",var->time_to_die, \
+				var->index_of_the_phil_who_died, "died");
 	ft_free(var);
 	return (0);
 }
@@ -86,7 +89,6 @@ void	ft_odd_phil(t_phil *phil)
 				phil->position, "has taken a fork");
 		if(ft_is(phil))
 			break ;
-		printf("%d \n", phil->var->stop_sign);
 		pthread_mutex_lock(&phil->var->forks[phil->sc_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
 				phil->position, "has taken a fork");
