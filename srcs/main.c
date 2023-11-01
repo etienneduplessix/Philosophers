@@ -6,7 +6,7 @@
 /*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:42:38 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/31 16:39:24 by edupless         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:43:43 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ void	ft_odd_phil(t_phil *phil)
 		pthread_mutex_lock(&phil->var->forks[phil->taking_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
 				phil->position, "has taken a fork");
+		if(ft_is(phil))
+			break ;
+		printf("%d \n", phil->var->stop_sign);
 		pthread_mutex_lock(&phil->var->forks[phil->sc_fork]);
 		printf("%ld %d %s\n", get_time_in_ms() - phil->var->start_time, \
 				phil->position, "has taken a fork");

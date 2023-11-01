@@ -6,7 +6,7 @@
 /*   By: edupless <edupless@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:35:48 by edupless          #+#    #+#             */
-/*   Updated: 2023/10/26 17:33:21 by edupless         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:41:00 by edupless         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ void	ft_1_philo(t_phil *phil);
 int		ft_sleep(t_phil *phil, long time);
 void	ft_free(t_var *var);
 void	ft_unlock(t_phil *phil);
+bool 	phis(t_phil *phil);
+bool	ft_is(t_phil *phil );
 
 #endif
